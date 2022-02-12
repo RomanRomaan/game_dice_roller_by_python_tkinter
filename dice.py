@@ -1,10 +1,13 @@
 from tkinter import *
 import random, time
+import tkinter as tk
+from turtle import left
 
 def throw():
-    x = random.choice(['img/one.png','img/two.png', 'img/three.png', \
-        'img/four.png', 'img/five.png', 'img/six.png'])
+    x = random.choice(['dice/img/one.png','dice/img/two.png', 'dice/img/three.png', \
+        'dice/img/four.png', 'dice/img/five.png', 'dice/img/six.png'])
     return x    
+
 
 def img(event):
     global b1, b2
@@ -20,9 +23,10 @@ root = Tk()
 root.geometry('800x400')
 root.title('Игра в кости.  Сделай бросок!')
 root.resizable(height=False, width=False)                   # не рисайзится
-root.iconphoto(True, PhotoImage(file=('img/icon.png')))   # окно
-font = PhotoImage(file=('img/bg.png'))
-Label(root, image=font).pack()                          #расместить на окне
+root.iconphoto(True, PhotoImage(file=('dice/img/icon.png')))   # окно
+font = PhotoImage(file=('dice/img/bg.png'))
+
+Label(root, image=font).pack()                         #расместить на окне image=font
 
 lab1 = Label(root)
 lab1.place(relx=0.5, rely=0.5, anchor=CENTER)
