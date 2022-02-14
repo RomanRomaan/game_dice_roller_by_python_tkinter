@@ -36,8 +36,17 @@ def get_img(event):
     count2 += num_x2
     print(count1)
 
+
     total_count1.config(text=f'общ.сч:{count1}')
     total_count2.config(text=f'общ.сч:{count2}')
+    if count1 > 50 and count1 > count2:
+        total_count1.config(text=f'Вы выиграли! общ.сч:{count1}.')
+        
+    elif count2 > 50 and count2 > count1:
+        total_count2.config(text=f'Вы выиграли! общ.сч:{count2}')
+        
+
+
     
     root.update()
     time.sleep(0.12)
