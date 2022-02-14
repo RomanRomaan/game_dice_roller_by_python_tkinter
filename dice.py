@@ -11,7 +11,7 @@ font = PhotoImage(file=('dice/img/bg.png'))
 Label(root, image=font).pack()                         
 count1 = count2 = 0
 
-def get_img(event):
+def get_img(event):   
     global b1, b2, count1, count2
     dice_img = ['dice/img/one.png', 'dice/img/two.png', 'dice/img/three.png', \
         'dice/img/four.png', 'dice/img/five.png', 'dice/img/six.png']
@@ -30,26 +30,27 @@ def get_img(event):
         num_x2 = get_count(x2)
 
         sub_dice_labal1.config(text=f'тек.счет: {num_x}')
-        sub_dice_labal2.config(text=f'тек.счет: {num_x2}')            
-
+        sub_dice_labal2.config(text=f'тек.счет: {num_x2}')      
+    
     count1 += num_x
     count2 += num_x2
     print(count1)
-
-
     total_count1.config(text=f'общ.сч:{count1}')
     total_count2.config(text=f'общ.сч:{count2}')
-    if count1 > 50 and count1 > count2:
-        total_count1.config(text=f'Вы выиграли! общ.сч:{count1}.')
-        
-    elif count2 > 50 and count2 > count1:
-        total_count2.config(text=f'Вы выиграли! общ.сч:{count2}')
-        
-
-
-    
+  
     root.update()
     time.sleep(0.12)
+
+    if count1 > 50 and count1 > count2:
+        total_count1.config(text='Вы проиграли')
+        total_count2.config(text=f'общ.сч:{count2}')        
+        return
+    elif count2 > 50 and count2 > count1:
+        total_count1.config(text=f'общ.сч:{count1}')
+        total_count2.config(text='Вы выиграли')
+        return    
+    
+
 
 
 def get_count(x): 
