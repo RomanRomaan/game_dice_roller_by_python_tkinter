@@ -3,7 +3,7 @@ import random, time
 
 
 root = Tk()
-root.geometry('800x400')
+root.geometry('800x500')
 root.title('Игра в кости.')
 root.resizable(height=False, width=False)                   
 root.iconphoto(True, PhotoImage(file=('dice/img/icon.png')))  
@@ -12,9 +12,8 @@ Label(root, image=font).pack()
 count1 = count2 = 0
 
 def get_img(event):
-    global b1, b2  
-    #count1 = count2 = 0
-    dice_img = ['dice/img/one.png','dice/img/two.png', 'dice/img/three.png', \
+    global b1, b2, count1, count2
+    dice_img = ['dice/img/one.png', 'dice/img/two.png', 'dice/img/three.png', \
         'dice/img/four.png', 'dice/img/five.png', 'dice/img/six.png']
 
     for i in range(3):    
@@ -31,9 +30,7 @@ def get_img(event):
         num_x2 = get_count(x2)
 
         sub_dice_labal1.config(text=f'тек.счет: {num_x}')
-        sub_dice_labal2.config(text=f'тек.счет: {num_x2}') 
-
-    
+        sub_dice_labal2.config(text=f'тек.счет: {num_x2}')            
 
     count1 += num_x
     count2 += num_x2
@@ -89,11 +86,7 @@ button.place(relx=0.5,  rely=0.88, anchor=CENTER )
 root.bind('<1>', get_img)
 get_img('event')
 
-
-
 root.mainloop()
-
-
 
 
 # pip install pyinstaller
